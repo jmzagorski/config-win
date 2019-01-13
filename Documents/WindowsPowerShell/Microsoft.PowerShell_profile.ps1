@@ -29,7 +29,7 @@ function Diff-WorkTree {
   $pf = $env:ProgramFiles;
   $profile = $env:UserProfile;
 
-  & "$pf\Git\bin\git" --git-dir=$profile\.myconf\ --work-tree=$profile $args
+  & "$pf\Git\bin\git" --git-dir=$profile\.config\config-win --work-tree=$profile $args
 }
 
 function Linux-Touch {
