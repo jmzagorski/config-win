@@ -1,4 +1,4 @@
-set-location $env:src
+set-location $env:userprofile
 
 $Shell = $Host.UI.RawUI
 
@@ -12,7 +12,8 @@ if($global:currentUser.IsInRole(
 ) {
   $user = "root";
 } else {
-  $user = $global:currentUser.Identities.Name
+  $userParts = $global:currentUser.Identities.Name.Split('\')
+  $user = if ($userParts.Length -ge 1) { $userparts[1] } else { $userParts[0] }
 }
 $Shell.WindowTitle =  $user + "@" + [System.Net.Dns]::GetHostName() + " (v" + (Get-Host).Version + ")";
 
@@ -73,56 +74,16 @@ if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
 
-function Is-GitDir () {
-  try {
-    $gitrepo = git rev-parse --abbrev-ref HEAD
-
-    if ($gitrepo) {
-      return $true
-    }
-  } catch {
-    # let it fall through
-  }
-  return $false
-}
-
-function Write-BranchName () {
-  try {
-    $branch = git rev-parse --abbrev-ref HEAD
-
-    if ($branch -eq "HEAD") {
-        # we're probably in detached HEAD state, so print the SHA
-        $branch = git rev-parse --short HEAD
-        Write-Host " ($branch)" -ForegroundColor "red"
-    }
-    elseif ($branch) {
-        # we're on an actual branch, so print it
-        Write-Host " ($branch)" -ForegroundColor "blue"
-    }
-  } catch {
-    # we'll end up here if we're in a newly initiated git repo
-    Write-Host " (no branches yet)" -ForegroundColor "yellow"
-  }
-}
-
 function prompt {
   #$p = Split-Path -leaf -path (Get-Location)
   #"$p> "
-  $base = "PS "
+  $base = $user + "@" + [System.Net.Dns]::GetHostName() + ":"
   $path = "$($executionContext.SessionState.Path.CurrentLocation)"
   $prefix = if ($user -eq "root") { "#" } else { "$" }
   $userPrompt = "$($prefix * ($nestedPromptLevel + 1)) "
 
-  Write-Host "`n$base" -NoNewline
-
-  if (Is-GitDir) {
-    Write-Host $path -NoNewline -ForegroundColor "green"
-    Write-BranchName
-  }
-  else {
-    # we're not in a repo so don't bother displaying branch name/sha
-    Write-Host $path -ForegroundColor "green"
-  }
+  Write-Host "`n$base" -NoNewline -ForegroundColor "green"
+  Write-Host $path.Replace($env:userprofile, "~") -NoNewLine
 
   return $userPrompt
 }
