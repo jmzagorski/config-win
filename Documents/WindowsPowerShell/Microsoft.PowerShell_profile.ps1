@@ -1,6 +1,7 @@
 set-location $env:userprofile
 
 $Shell = $Host.UI.RawUI
+Set-PSReadlineOption -BellStyle None
 
 # Get username:
 [System.Security.Principal.WindowsPrincipal]$global:currentUser =
