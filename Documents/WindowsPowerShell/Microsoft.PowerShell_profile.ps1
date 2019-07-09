@@ -18,15 +18,6 @@ if($global:currentUser.IsInRole(
 }
 $Shell.WindowTitle =  $user + "@" + [System.Net.Dns]::GetHostName() + " (v" + (Get-Host).Version + ")";
 
-$size = $Shell.WindowSize
-$size.width=70
-$size.height=25
-$Shell.WindowSize = $size
-$size = $Shell.BufferSize
-$size.width=70
-$size.height=5000
-$Shell.BufferSize = $size
-
 function Diff-WorkTree {
   $pf = $env:ProgramFiles;
   $profile = $env:UserProfile;
