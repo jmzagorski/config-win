@@ -1,13 +1,20 @@
-cd:: Prerequisites (see INSTALLpc.txt on vim repo for more info)
+:: Prerequisites (see INSTALLpc.txt on vim repo for more info)
 :: For Visual Studio C++ 2017 x86 build
-:: Steps
-:: 1. open vscmd prompt
-:: 2. run "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Auxiliary\Build\vcvars32.bat"
-:: 3. Set config options and run ..\..\vimconfig.cmd from with src\src of vim dir
-:: 4. nmake -f Make_mvc.mak
-:: 5. Run ..\..\vimcopy.cmd from with src\src of vim dir
-:: 6. Run nmake -f Make_mvc.mak clean
-:: 7. Run from step 3 for gvim/vim, whichever was not done.
+
+@echo off
+
+echo ==========================================================================
+echo ** Building VIM/GVIM
+echo ** 32 bit
+echo ==========================================================================
+
+IF ["%VCINSTALLDIR%"] == [] (
+  echo "Cannot find VC install dir. Make sure you ran this in the visual studio command prompt"
+  exit /b %errorlevel%
+)
+
+call "%VCINSTALLDIR%\Auxiliary\Build\vcvars32.bat"
+
 set GUI=no
 set DYNAMIC_PYTHON=yes
 set PYTHON=C:\Program Files (x86)\Python27
@@ -27,3 +34,29 @@ set DYNAMIC_RUBY=
 set RUBY=
 set RUBY_VER=
 set RUBY_API_VER_LONG=
+
+set SRC=%USERPROFILE%\builds\vim\src
+set DST=%USERPROFILE%\vim\latest
+if exist "%DST" (
+  rmdir /S /Q %DST%
+)
+
+for /l %%x in (1, 1, 2) do (
+  if %%x==2 set GUI=yes
+
+  cd src\src\
+  nmake -f Make_mvc.mak clean
+  nmake -f Make_mvc.mak
+  cd ..
+  cd ..
+
+  xcopy %SRC%\runtime "%DST%" /D /E /H /I /Y %*
+  xcopy %SRC%\src\xxd\xxd.exe "%DST%\*" /D /Y %*
+  xcopy %SRC%\src\GvimExt\gvimext.dll "%DST%\*" /D /Y %*
+  xcopy %SRC%\src\*.exe "%DST%\*" /D /Y %*
+)
+
+echo ==========================================================================
+echo ** Runtime path not linked
+echo ** Run mklink /D runtime src when ready
+echo ==========================================================================
