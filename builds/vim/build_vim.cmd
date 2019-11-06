@@ -8,9 +8,19 @@ echo ** Building VIM/GVIM
 echo ** 32 bit
 echo ==========================================================================
 
+where /q git || ECHO Git must be installed. && EXIT /B
+
 IF ["%VCINSTALLDIR%"] == [] (
   echo "Cannot find VC install dir. Make sure you ran this in the visual studio command prompt"
   exit /b %errorlevel%
+)
+
+if exist src (
+  cd src
+  git pull
+  cd ..
+) else (
+  git clone https://github.com/vim/vim src
 )
 
 call "%VCINSTALLDIR%\Auxiliary\Build\vcvars32.bat"
@@ -36,9 +46,9 @@ set RUBY_VER=
 set RUBY_API_VER_LONG=
 
 set SRC=%USERPROFILE%\builds\vim\src
-set DST=%USERPROFILE%\vim\latest
-if exist "%DST" (
-  rmdir /S /Q %DST%
+set DST=%USERPROFILE%\vim\current
+if exist "%DST%" (
+  move "%DST%" "%USERPROFILE%\vim\prior"
 )
 
 for /l %%x in (1, 1, 2) do (
@@ -56,7 +66,16 @@ for /l %%x in (1, 1, 2) do (
   xcopy %SRC%\src\*.exe "%DST%\*" /D /Y %*
 )
 
+if exist "%USERPROFILE%\vim\runtime" (
+  rmdir /S /Q "%USERPROFILE%\vim\runtime"
+)
+
+mklink /D "%USERPROFILE%\vim\runtime" "%USERPROFILE%\vim\current"
+
+rmdir /S /Q src
+
 echo ==========================================================================
-echo ** Runtime path not linked
-echo ** Run mklink /D runtime src when ready
+echo ** vim installed in %USERPROFILE%\vim\current
+echo ** vim runtime in %USERPROFILE%\vim\runtime
+echo ** prior vim moved to %USERPROFILE%\vim\prior
 echo ==========================================================================
