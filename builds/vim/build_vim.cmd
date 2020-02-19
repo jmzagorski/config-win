@@ -28,7 +28,7 @@ call "%VCINSTALLDIR%\Auxiliary\Build\vcvars32.bat"
 set GUI=no
 set DYNAMIC_PYTHON=yes
 set PYTHON=C:\Program Files (x86)\Python27
-set PYTHON_VER=27
+set PYTHON_VER=
 set DYNAMIC_PYTHON3=yes
 set PYTHON3=%LOCALAPPDATA%\Programs\Python\Python36-32
 set NETBEANS=no
