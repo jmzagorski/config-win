@@ -6,8 +6,14 @@
 [init]
 	templatedir = ~/.git_template
 [winUpdater]
-	recentlySeenVersion = 2.20.1.windows.1
+	recentlySeenVersion = 2.23.0.windows.1
 [push]
 	followTags = true
 [core]
 	autocrlf = true
+	preloadindex = true
+	fscache = true
+[http]
+	sslBackend = schannel
+[gc]
+	auto = 256
