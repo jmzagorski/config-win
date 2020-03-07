@@ -23,6 +23,11 @@ if exist src (
   git clone https://github.com/vim/vim src
 )
 
+IF NOT EXIST src  (
+  echo "Cannot find vim source code. Maybe there was a problem with 'git clone'?"
+  exit /b %errorlevel%
+)
+
 call "%VCINSTALLDIR%\Auxiliary\Build\vcvars32.bat"
 
 set GUI=no
