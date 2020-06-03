@@ -25,6 +25,7 @@ if exist src (
 
 IF NOT EXIST src  (
   echo "Cannot find vim source code. Maybe there was a problem with 'git clone'?"
+  echo %errorlevel%
   exit /b %errorlevel%
 )
 
@@ -51,8 +52,13 @@ set RUBY_API_VER_LONG=
 
 set SRC=%USERPROFILE%\builds\vim\src
 set DST=%USERPROFILE%\vim\current
+
+if exist "%USERPROFILE%\vim\runtime" (
+  rmdir /S /Q "%USERPROFILE%\vim\runtime"
+)
+
 if exist "%DST%" (
-  move "%DST%" "%USERPROFILE%\vim\prior"
+  move /Y "%DST%" "%USERPROFILE%\vim\prior"
 )
 
 for /l %%x in (1, 1, 2) do (
@@ -70,9 +76,6 @@ for /l %%x in (1, 1, 2) do (
   xcopy %SRC%\src\*.exe "%DST%\*" /D /Y %*
 )
 
-if exist "%USERPROFILE%\vim\runtime" (
-  rmdir /S /Q "%USERPROFILE%\vim\runtime"
-)
 
 mklink /D "%USERPROFILE%\vim\runtime" "%USERPROFILE%\vim\current"
 
