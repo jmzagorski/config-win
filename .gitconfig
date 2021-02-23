@@ -5,12 +5,13 @@
 	changed = magenta
 [init]
 	templatedir = ~/.git_template
+	defaultBranch = main
 [winUpdater]
 	recentlySeenVersion = 2.23.0.windows.1
 [push]
 	followTags = true
 [core]
-	autocrlf = true
+	autocrlf = input
 	preloadindex = true
 	fscache = true
 [http]

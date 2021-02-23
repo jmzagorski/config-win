@@ -69,7 +69,7 @@ if (Test-Path($ChocolateyProfile)) {
 function prompt {
   #$p = Split-Path -leaf -path (Get-Location)
   #"$p> "
-  $base = $user + "@" + [System.Net.Dns]::GetHostName() + ":"
+  $base = $user
   $path = "$($executionContext.SessionState.Path.CurrentLocation)"
   $prefix = if ($user -eq "root") { "#" } else { "$" }
   $userPrompt = "$($prefix * ($nestedPromptLevel + 1)) "
