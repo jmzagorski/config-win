@@ -1,0 +1,14 @@
+import:
+  - C:\Users\511113\AppData\Roaming\alacritty\alacritty.yml
+
+window:
+  title: wsl
+
+font:
+  use_thin_strokes: true # for tmux
+
+
+shell:
+  program: wsl
+  args:
+    - "tmux attach || tmux"
