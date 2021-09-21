@@ -11,17 +11,24 @@ font:
     #family: Iosevka
     #family: Roboto Mono
     #family: Source Code Pro
-    family: Noto Mono
+    #family: Noto Mono
+    family: Fira Code
 
   bold:
-    family: Noto Mono
+    family: Fira Code
+    #family: JetBrains Mono
+    #family: Ubuntu Mono
+    #family: Noto Mono
     style: Bold
 
   italic:
-    family: Noto Mono
+    family: Fira Code
+    #family: Ubuntu Mono
+    #family: JetBrains Mono
+    #family: Noto Mono
     style: Italic
 
-  size: 13.0
+  size: 11.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -77,3 +84,9 @@ selection:
 # click
 mouse_bindings:
   - { mouse: Right, action: PasteSelection }
+
+key_bindings:
+  - { key: Plus,           mods: Control,                         action: IncreaseFontSize }
+  - { key: Minus,          mods: Control,                         action: DecreaseFontSize }
+  - { key: F11,          mods: None,                         action: ToggleFullScreen }
+

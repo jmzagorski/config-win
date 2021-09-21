@@ -4,3 +4,4 @@ Transparency=no
 Term=xterm-256color
 Charset=UTF-8
 FontSmoothing=full
+ThemeFile=dracula
