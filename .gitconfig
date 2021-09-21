@@ -18,3 +18,5 @@
 	sslBackend = schannel
 [gc]
 	auto = 256
+[pull]
+	rebase = true
