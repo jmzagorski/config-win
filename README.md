@@ -5,12 +5,13 @@ Configuration for Powershell, cmder, conemu and for building vim from source
 
 ## Clone
 ```powershell
-mkdir $env:userprofile\.config
-git clone --separate-git-dir=$env:userprofile\.config\config-win https://github.com/jmzagorski/config-win.git $env:userprofile\config-win-tmp
-cd $env:userprofile\config-win-tmp
-mv .git $env:userprofile\.config\config-win
+mkdir $env:appdata\dotfiles
+git clone --separate-git-dir=$env:appdata\dotfiles https://github.com/jmzagorski/config-win.git $env:tmp\dotfiles
+cd $env:tmp\dotfiles
+mv .git $env:appdata\dotfiles
 cd $env:userprofile
-mv $env:userprofile\config-win-tmp\* .
-rm -r $env:userprofile\config-win-tmp
+mv $env:tmp\dotfiles\* .
 config config status.showUntrackedFiles no
 ```
+
+_the config alias should already be present in the powershell profile_
