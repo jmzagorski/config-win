@@ -5,42 +5,24 @@ window:
 
 font:
   normal:
-    #family: JetBrains Mono
-    #family: Ubuntu Mono
-    #family: Isoevka Term
-    #family: Iosevka
-    #family: Roboto Mono
-    #family: Source Code Pro
-    #family: Noto Mono
-    family: Fira Code
+    family: Consolas
+    style: Regular
 
   bold:
-    family: Fira Code
-    #family: JetBrains Mono
-    #family: Ubuntu Mono
-    #family: Noto Mono
+    family: Consolas
     style: Bold
 
   italic:
-    family: Fira Code
-    #family: Ubuntu Mono
-    #family: JetBrains Mono
-    #family: Noto Mono
+    family: Consolas
     style: Italic
+
+  bold_italic:
+    family: Consolas
+    style: Bold Italic
 
   size: 11.0
 
-  # Offset is the extra space around each character. offset.y can be thought of
-  # as modifying the linespacing, and offset.x as modifying the letter spacing.
-  offset:
-    x: 0
-    y: 0
-
-  glyph_offset:
-    x: 0
-    y: 0
-
-background_opacity: 0.95
+window_opacity: 0.95
 
 # Colors (PaperColor - Light)
 colors:

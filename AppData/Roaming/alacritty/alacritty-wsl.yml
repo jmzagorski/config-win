@@ -4,11 +4,9 @@ import:
 window:
   title: wsl
 
-font:
-  use_thin_strokes: true # for tmux
-
-
 shell:
   program: wsl
   args:
-    - "tmux attach || tmux"
+    - tmux attach || tmux -u
+
+working_directory: \\wsl$\Debian\home\jmzagorski

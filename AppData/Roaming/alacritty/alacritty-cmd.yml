@@ -1,0 +1,10 @@
+import:
+  - C:\Users\511113\AppData\Roaming\alacritty\alacritty.yml
+
+window:
+  title: cmd
+
+shell:
+  program: cmd
+
+working_directory: C:\Users\511113
