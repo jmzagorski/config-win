@@ -12,8 +12,11 @@
             "keys": "ctrl+c"
         },
         {
-            "command": "paste",
+            "command": "unbound",
             "keys": "ctrl+v"
+        },
+        {
+            "command": "paste"
         },
         {
             "command": "find",
@@ -33,24 +36,41 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
     "profiles": 
     {
-        "defaults": {},
+        "defaults": 
+        {
+            "colorScheme": "Tango Light",
+            "cursorShape": "vintage"
+        },
         "list": 
         [
             {
-                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "colorScheme": "Campbell Powershell",
+                "commandline": "\"%ProgramFiles%\\PowerShell\\7\\pwsh.exe\" -WorkingDirectory ~",
+                "cursorShape": "vintage",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
                 "name": "Windows PowerShell"
             },
             {
+                "colorScheme": "One Half Light",
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "cursorHeight": 71,
+                "cursorShape": "vintage",
+                "experimental.retroTerminalEffect": false,
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "Command Prompt"
             },
             {
+                "cursorShape": "vintage",
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
                 "name": "PowerShell",
@@ -58,15 +78,17 @@
             },
             {
                 "bellStyle": "none",
-                "colorScheme": "Tango Light",
+                "colorScheme": "One Half Light",
                 "cursorShape": "vintage",
                 "font": 
                 {
-                    "face": "Consolas"
+                    "face": "Cascadia Code",
+                    "weight": "light"
                 },
                 "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
                 "hidden": false,
                 "name": "Debian",
+                "opacity": 100,
                 "source": "Windows.Terminal.Wsl"
             },
             {
@@ -287,8 +309,9 @@
             "yellow": "#808000"
         }
     ],
+    "snapToGridOnResize": false,
     "startOnUserLogin": true,
-    "theme": "light",
+    "theme": "system",
     "themes": [],
     "windowingBehavior": "useAnyExisting"
 }
