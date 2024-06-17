@@ -1,0 +1,9 @@
+import = ['C:\Users\511113\AppData\Roaming\alacritty\alacritty.toml']
+working_directory = '\\wsl$\Debian\home\jmzagorski'
+
+[shell]
+args = ["tmux attach || tmux -u"]
+program = "wsl"
+
+[window]
+title = "wsl"

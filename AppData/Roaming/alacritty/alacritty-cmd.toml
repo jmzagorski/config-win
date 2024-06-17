@@ -1,0 +1,8 @@
+import = ['C:\Users\511113\AppData\Roaming\alacritty\alacritty.toml']
+working_directory = 'C:\Users\511113'
+
+[shell]
+program = "cmd"
+
+[window]
+title = "cmd"
