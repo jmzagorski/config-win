@@ -1,8 +1,12 @@
-import = ['C:\Users\511113\AppData\Roaming\alacritty\alacritty.toml']
-working_directory = 'C:\Users\511113'
 
-[shell]
+[terminal.shell]
 program = "cmd"
 
 [window]
 title = "cmd"
+
+[general]
+working_directory = 'C:\Users\511113'
+import = ['C:\Users\511113\AppData\Roaming\alacritty\alacritty.toml']
+
+[terminal]

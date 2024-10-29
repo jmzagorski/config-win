@@ -1,7 +1,11 @@
-import = ['C:\Users\511113\AppData\Roaming\alacritty\alacritty.toml']
 
-[shell]
+[terminal.shell]
 program = 'C:\Program Files\PowerShell\7\pwsh.exe -WorkingDirectory ~'
 
 [window]
 title = "powershell"
+
+[general]
+import = ['C:\Users\511113\AppData\Roaming\alacritty\alacritty.toml']
+
+[terminal]
