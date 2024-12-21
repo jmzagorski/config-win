@@ -27,7 +27,7 @@ background = "0xeeeeee"
 foreground = "0x878787"
 
 [font]
-size = 11.0
+size = 12.0
 
 [font.bold]
 family = "Consolas"

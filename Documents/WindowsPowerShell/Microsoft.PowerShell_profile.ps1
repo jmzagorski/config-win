@@ -25,56 +25,16 @@ function Diff-WorkTree {
   & "$pf\Git\bin\git" --git-dir=$env:appdata\dotfiles --work-tree=$profile $args
 }
 
-function Linux-Touch {
-  [cmdletbinding()]
-  Param (
-    [string]$file
-  )
-  "" | out-file $file
-}
-function Linux-Head {
-  [cmdletbinding()]
-  Param (
-    [int]$lines = 10
-  )
-  $input | select -first $lines
-}
-function Linux-Less {
-  $input | out-host -paging
-}
-function Linux-Open {
-  [cmdletbinding()]
-  Param (
-    [string]$path
-  )
-  (New-Object -Com Shell.Application).Open($path)
-}
-
 Set-Alias -Name config -Value Diff-WorkTree -Description "Allows config files to stay home"
-# this gives me the bash command history keys
 Set-PSReadLineOption -EditMode Emacs
-Set-Alias -Name touch -Value Linux-Touch -Description "creates an empty file"
-Set-Alias -Name less -Value Linux-Less -Description "paginates long input"
-Set-Alias -Name head -Value Linux-Head -Description "truncates the results by number of lines"
-Set-Alias -Name open -Value Linux-Open -Description "opens the input"
-
-#Clear-Host
-
-# Chocolatey profile
-$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-if (Test-Path($ChocolateyProfile)) {
-  Import-Module "$ChocolateyProfile"
-}
 
 function prompt {
-  #$p = Split-Path -leaf -path (Get-Location)
-  #"$p> "
   $base = $user
   $path = "$($executionContext.SessionState.Path.CurrentLocation)"
   $prefix = if ($user -eq "root") { "#" } else { "$" }
   $userPrompt = "$($prefix * ($nestedPromptLevel + 1)) "
 
-  Write-Host "`n$base" -NoNewline -ForegroundColor "green"
+  Write-Host "`n$base" -NoNewline
   Write-Host $path.Replace($env:userprofile, "~") -NoNewLine
 
   return $userPrompt
