@@ -8,6 +8,14 @@
             "keys": "ctrl+v"
         },
         {
+            "command": "unbound",
+            "keys": "alt+]"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+shift+w"
+        },
+        {
             "command": 
             {
                 "action": "copy",
@@ -50,14 +58,17 @@
     {
         "defaults": 
         {
-            "colorScheme": "One Half Light",
+            "colorScheme": "One Half Light Derivative",
             "cursorShape": "vintage",
-"intenseTextStyle": "bold"
+            "font": 
+            {
+                "face": "Cascadia Mono"
+            },
+            "intenseTextStyle": "bold"
         },
         "list": 
         [
             {
-                "colorScheme": "Campbell Powershell",
                 "commandline": "\"%ProgramFiles%\\PowerShell\\7\\pwsh.exe\" -WorkingDirectory ~",
                 "cursorShape": "vintage",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
@@ -65,7 +76,6 @@
                 "name": "Windows PowerShell"
             },
             {
-                "colorScheme": "One Half Dark",
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "cursorHeight": 71,
                 "cursorShape": "vintage",
@@ -75,7 +85,6 @@
                 "name": "Command Prompt"
             },
             {
-                "colorScheme": "Campbell Powershell",
                 "cursorShape": "vintage",
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
@@ -85,11 +94,10 @@
             {
                 "antialiasingMode": "cleartype",
                 "bellStyle": "none",
-                "colorScheme": "One Half Light",
                 "cursorShape": "vintage",
                 "font": 
                 {
-                    "face": "Consolas",
+                    "face": "Cascadia Mono",
                     "weight": "normal"
                 },
                 "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
@@ -106,10 +114,35 @@
             }
         ]
     },
-    "schemes": [],
+    "schemes":
+    [
+        {
+            "name": "One Half Light Derivative",
+            "background": "#FAFAFA",
+            "black": "#FFFFFF",
+            "blue": "#61AFEF",
+            "brightBlack": "#C0C0C0",
+            "brightBlue": "#0184BC",
+            "brightCyan": "#0997B3",
+            "brightGreen": "#50A14F",
+            "brightPurple": "#A626A4",
+            "brightRed": "#E45649",
+            "brightWhite": "#000000",
+            "brightYellow": "#C18301",
+            "cursorColor": "#4F525D",
+            "cyan": "#56B5C1",
+            "foreground": "#383A42",
+            "green": "#98C379",
+            "purple": "#C577DD",
+            "red": "#DF6C75",
+            "selectionBackground": "#CCCCCC",
+            "white": "#808080",
+            "yellow": "#E4C07A"
+        }
+    ],
     "snapToGridOnResize": false,
     "startOnUserLogin": false,
     "theme": "light",
     "themes": [],
-    "windowingBehavior": "useAnyExisting"
+    "windowingBehavior": "useAnyExisting",
 }
