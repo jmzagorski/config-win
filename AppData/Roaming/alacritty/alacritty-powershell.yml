@@ -1,8 +1,0 @@
-import:
-  - C:\Users\511113\AppData\Roaming\alacritty\alacritty.yaml
-
-window:
-  title: powershell
-
-shell:
-  program: "C:\\Program Files\\PowerShell\\7\\pwsh.exe -WorkingDirectory ~"
