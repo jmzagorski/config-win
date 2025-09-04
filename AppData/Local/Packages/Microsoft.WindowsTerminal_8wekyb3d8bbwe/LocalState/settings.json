@@ -4,34 +4,16 @@
     "actions": 
     [
         {
-            "command": "unbound",
-            "keys": "ctrl+v"
-        },
-        {
-            "command": "unbound",
-            "keys": "alt+]"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+shift+w"
-        },
-        {
             "command": 
             {
                 "action": "copy",
                 "singleLine": false
             },
-            "id": "User.copy.644BA8F2",
-            "keys": "ctrl+c"
+            "id": "User.copy.644BA8F2"
         },
         {
             "command": "paste",
             "id": "User.paste"
-        },
-        {
-            "command": "find",
-            "id": "User.find",
-            "keys": "ctrl+shift+f"
         },
         {
             "command": 
@@ -40,14 +22,44 @@
                 "split": "auto",
                 "splitMode": "duplicate"
             },
-            "id": "User.splitPane.A6751878",
-            "keys": "alt+shift+d"
+            "id": "User.splitPane.A6751878"
+        },
+        {
+            "command": "find",
+            "id": "User.find"
         }
     ],
     "alwaysOnTop": false,
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
+    "keybindings": 
+    [
+        {
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+w"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+v"
+        },
+        {
+            "id": null,
+            "keys": "alt+]"
+        },
+        {
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "User.splitPane.A6751878",
+            "keys": "alt+shift+d"
+        }
+    ],
     "newTabMenu": 
     [
         {
@@ -114,10 +126,9 @@
             }
         ]
     },
-    "schemes":
+    "schemes": 
     [
         {
-            "name": "One Half Light Derivative",
             "background": "#FAFAFA",
             "black": "#FFFFFF",
             "blue": "#61AFEF",
@@ -133,6 +144,7 @@
             "cyan": "#56B5C1",
             "foreground": "#383A42",
             "green": "#98C379",
+            "name": "One Half Light Derivative",
             "purple": "#C577DD",
             "red": "#DF6C75",
             "selectionBackground": "#CCCCCC",
@@ -144,5 +156,5 @@
     "startOnUserLogin": false,
     "theme": "light",
     "themes": [],
-    "windowingBehavior": "useAnyExisting",
+    "windowingBehavior": "useAnyExisting"
 }
